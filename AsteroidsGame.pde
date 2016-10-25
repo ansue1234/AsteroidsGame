@@ -1,36 +1,38 @@
 SpaceShip shengZhou = new SpaceShip();
+Star [] stars;
 //your variable declarations here
 public void setup() 
 {
+  stars = new Star[400];
+  for(int i = 0; i<stars.length; i++){
+    stars[i] = new Star();
+  }
   size(800,800);
-  background(0);
-  //your code here
+
 }
 public void draw() 
 {
   background(0);
-   for(int i = 0; i<200; i++){
-    ellipse((int)(Math.random()*800), (int)(Math.random()*800),5,5);
-  }
   shengZhou.move();
   shengZhou.show();
+  for(int i = 0; i<stars.length; i++){
+    stars[i].show();
+  }
   
 }
-class SpaceShip extends Floater  
+public class SpaceShip extends Floater  
 {   
    SpaceShip(){
     corners = 10;
     int[] xC = {26,10,0,-8,-8,-14,-8,-8,0,10};
     int[] yC = {0,-4,-18,-18,-4,0,4,18,18,4};
-    // int[] xC = {-5,20,20,5};
-    // int[] yC = {0,0,20,20};
     xCorners=xC;
     yCorners=yC;
     myColor  = 255;
     myCenterX = 400;
     myCenterY = 400;
     myDirectionX = 0;
-    myDirectionX = 0;
+    myDirectionY = 0;
     myPointDirection = 270;
    } 
   public void setX(int x){ myCenterX = x;}  
@@ -60,7 +62,7 @@ public void keyPressed(){
       case 'd':
         shengZhou.rotate(2);
       break;
-      case 'h':
+      case 'r':
         shengZhou.setY((int)(Math.random()*800));
         shengZhou.setX((int)(Math.random()*800));
         shengZhou.setDirectionY(0);
@@ -149,3 +151,51 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   }   
 } 
 
+public class Asteriod extends Floater{
+  SpaceShip(){
+    corners = 6;
+    int[] xC = {-5,5,8,5,-5,-8};
+    int[] yC = {5,5,0,-5,-5,0};
+    xCorners=xC;
+    yCorners=yC;
+    myColor  = 255;
+    myCenterX = 400;
+    myCenterY = 400;
+    myDirectionX = 0;
+    myDirectionY = ;
+    myPointDirection = 270;
+   } 
+  public void setX(int x){ myCenterX = x;}  
+  public int getX(){return (int)myCenterX;}   
+  public void setY(int y){ myCenterY = y;}   
+  public int getY(){return (int)myCenterY;}   
+  public void setDirectionX(double x){ myDirectionX = x;}   
+  public double getDirectionX(){System.out.println(myDirectionX); return myDirectionX;}
+  public void setDirectionY(double y){ myDirectionY = y;} 
+  public double getDirectionY(){return myDirectionY;}   
+  public void setPointDirection(int degrees){myPointDirection = degrees;}   
+  public double getPointDirection(){return myPointDirection;} 
+
+}
+
+public class Star{
+  private int mX;
+  private int mY;
+  public Star(){
+    mY = (int)(Math.random()*800);
+    mX = (int)(Math.random()*800);
+  }
+  public void show(){
+    fill(255);
+    ellipse(mX,mY,2,2);
+  }
+  public int getX(){
+    return mX;
+  }
+  public int getY(){
+    return mY;
+  }
+}
+
+
+   
