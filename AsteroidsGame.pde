@@ -1,17 +1,18 @@
 SpaceShip shengZhou = new SpaceShip();
-Asteriod [] yun;
+ArrayList<Asteriod> yun;
 Star [] stars;
 
 //your variable declarations here
 public void setup() 
 {
   stars = new Star[400];
-  yun = new Asteriod[20];
+  
   for(int i = 0; i<stars.length; i++){
     stars[i] = new Star();
   }
-  for(int i = 0; i<yun.length; i++){
-    yun[i] = new Asteriod();
+  yun = new ArrayList<Asteriod>();
+  for(int i = 0; i<20; i++){
+   yun.add(new Asteriod());
   }
   size(800,800);
 
@@ -24,10 +25,10 @@ public void draw()
   for(int i = 0; i<stars.length; i++){
     stars[i].show();
   }
-  for(int i = 0; i<yun.length; i++){
-    yun[i].show();
-    yun[i].rotate((int)(Math.random()*4)-2);
-    yun[i].move();
+  for(int i = 0; i<20; i++){
+    yun.get(i).show();
+    yun.get(i).move();
+    if(dist(yun.get(i).getX(), yun.get(i).getY(), s, y2)
   }  
 }
 
@@ -61,9 +62,6 @@ public void keyPressed(){
     shengZhou.setPointDirection((int)(Math.random()*360));
   }
 }
-
-
-
 
 
 

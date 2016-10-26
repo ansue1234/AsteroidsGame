@@ -1,6 +1,7 @@
 public class SpaceShip extends Floater  
 {   
    SpaceShip(){
+    myColor  = color(255, 0, 2);
     corners = 10;
     int[] xC = {26,10,0,-8,-8,-14,-8,-8,0,10};
     int[] yC = {0,-4,-18,-18,-4,0,4,18,18,4};
