@@ -7,6 +7,7 @@ public class Star{
   }
   public void show(){
     fill(255);
+    noStroke();
     ellipse(mX,mY,2,2);
   }
   public int getX(){

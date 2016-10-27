@@ -1,7 +1,6 @@
 public class SpaceShip extends Floater  
 {   
    SpaceShip(){
-    myColor  = color(255, 0, 2);
     corners = 10;
     int[] xC = {26,10,0,-8,-8,-14,-8,-8,0,10};
     int[] yC = {0,-4,-18,-18,-4,0,4,18,18,4};
@@ -25,4 +24,45 @@ public class SpaceShip extends Floater
   public void setPointDirection(int degrees){myPointDirection = degrees;}   
   public double getPointDirection(){return myPointDirection;} 
    //your code here
+   public void sped(){
+      if(shengZhou.getDirectionY()>spe){
+          shengZhou.setDirectionY(spe);
+      }else if(shengZhou.getDirectionX()>spe){
+        shengZhou.setDirectionX(spe);
+      }else if(shengZhou.getDirectionY()<-spe){
+        shengZhou.setDirectionY(-spe);
+      }else if(shengZhou.getDirectionX()<-spe){
+        shengZhou.setDirectionX(-spe);
+      }
+   }
+   
+   public void control(){
+      if(key == 'd'&&key == 'w'){
+        shengZhou.accelerate(1);
+        shengZhou.rotate(2);
+      }else if(key == 's'&&key == 'w'){
+        shengZhou.accelerate(-1);
+        shengZhou.rotate(2);
+      }else if(key == 'd'&&key == 'a'){
+        shengZhou.accelerate(1);
+        shengZhou.rotate(-2);
+      }else if(key == 's'&&key == 'a'){
+        shengZhou.accelerate(-1);
+        shengZhou.rotate(-2);
+      }else if(key == 'w'){
+        shengZhou.accelerate(1);
+      }else if(key == 's'){
+        shengZhou.accelerate(-1);
+      }else if(key == 'a'){
+        shengZhou.rotate(-2);
+      }else if(key == 'd'){
+        shengZhou.rotate(2);
+      }else if(key == 'r'){
+        shengZhou.setY((int)(Math.random()*800));
+        shengZhou.setX((int)(Math.random()*800));
+        shengZhou.setDirectionY(0);
+        shengZhou.setDirectionX(0);
+        shengZhou.setPointDirection((int)(Math.random()*360));
+      }
+   }
 }
