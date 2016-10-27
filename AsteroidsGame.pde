@@ -1,5 +1,5 @@
 SpaceShip shengZhou = new SpaceShip();
-
+ArrayList<Bullets> bullet;
 ArrayList<Asteriod> yun;
 Star [] stars;
 public static int spe = 8;
@@ -14,7 +14,8 @@ public void setup()
   for(int i = 0; i<stars.length; i++){
     stars[i] = new Star();
   }
-  
+  bullet = new ArrayList<Bullet>();
+
   size(800,800);
 
 }
@@ -24,6 +25,7 @@ public void draw()
   shengZhou.move();
   shengZhou.show();
   shengZhou.sped();
+  bullet.show();
   for(int i = 0; i<stars.length; i++){
     stars[i].show();
   }
@@ -49,6 +51,7 @@ public void Asteriods(){
   }  
 }
 
+public void bullet
 
 
    

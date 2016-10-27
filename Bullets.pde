@@ -21,7 +21,7 @@ public class Bullets extends Floater{
     myDirectionY = 5*Math.sin(rad)+shengZhou.getDirectionY();
   }
   
-  public void move(){
+  public void show(){
     fill(myColor);   
     stroke(myColor); 
     ellipse((float)myCenterX,(float)myCenterY,5,5);

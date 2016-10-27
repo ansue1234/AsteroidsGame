@@ -48,5 +48,4 @@ public class Asteriod extends Floater{
       myCenterY = height;    
     }   
   }
-
 }
