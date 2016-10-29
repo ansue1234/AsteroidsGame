@@ -79,11 +79,8 @@ public void bulletsMove(){
     }    
   }
 }   
-
 public void stats(){
   textSize(20);
   text("Health:" + shipHealth,40,40);
   text("Ammo:" + ammo,40,60);
 }
-
-   
