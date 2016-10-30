@@ -84,8 +84,8 @@ public void collide(){
         if(dist(bullet.get(j).getX(), bullet.get(j).getY(),yun.get(i).getX(), yun.get(i).getY())<15){
           yun.remove(i);
           bullet.remove(j);
-          System.out.println(j);
-          System.out.println(i);
+          //System.out.println(j);
+          //System.out.println(i);
        }     
       }
     }
