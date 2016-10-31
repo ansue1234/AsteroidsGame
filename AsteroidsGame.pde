@@ -10,15 +10,15 @@ public void setup()
 {
   stars = new Star[400];
   yun = new ArrayList<Asteriod>();
-  for(int i = 100; i>=0; i--){
+  for(int i = 50; i>=0; i--){
      yun.add(new Asteriod());
   }
   for(int i = 0; i<stars.length; i++){
     stars[i] = new Star();
   }
   bullet = new ArrayList<Bullets>();
-  size(800,900);
-  frameRate(10);
+  size(800,800);
+  frameRate(60);
 }
 public void draw() 
 {
@@ -77,15 +77,13 @@ public void collide(){
   }
       
   for (int j = bullet.size()-2; j>=0; j--){
-    if(bullet.get(j).getX()<100||bullet.get(j).getX()>500||bullet.get(j).getY()<100||bullet.get(j).getY()>500){
+    if(bullet.get(j).getX()<0||bullet.get(j).getX()>800||bullet.get(j).getY()<0||bullet.get(j).getY()>800){
       bullet.remove(j); 
     }
       for(int i = yun.size()-2; i>=0; i--){
         if(dist(bullet.get(j).getX(), bullet.get(j).getY(),yun.get(i).getX(), yun.get(i).getY())<15){
           yun.remove(i);
           bullet.remove(j);
-          //System.out.println(j);
-          //System.out.println(i);
        }     
       }
     }
