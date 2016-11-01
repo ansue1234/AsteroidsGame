@@ -1,9 +1,9 @@
 public class Star{
-  private int mX;
-  private int mY;
+  protected int mX;
+  protected int mY;
   public Star(){
     mY = (int)(Math.random()*800);
-    mX = (int)(Math.random()*800);
+    mX = (int)(Math.random()*1200);
   }
   public void show(){
     fill(255);

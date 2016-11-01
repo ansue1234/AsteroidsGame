@@ -1,4 +1,5 @@
 SpaceShip shengZhou = new SpaceShip();
+Planet bob = new Planet(200,200);
 ArrayList<Bullets> bullet;
 ArrayList<Asteriod> yun;
 Star [] stars;
@@ -17,7 +18,7 @@ public void setup()
     stars[i] = new Star();
   }
   bullet = new ArrayList<Bullets>();
-  size(800,800);
+  size(1200,800);
   frameRate(60);
 }
 public void draw() 
@@ -33,7 +34,8 @@ public void draw()
   shengZhou.show();
   shengZhou.sped();
   stats();
-  collide();   
+  collide();
+  bob.show();   
   //System.out.println("y"+yun.size());
   //System.out.println("b"+bullet.size());
   //System.out.println(bullet.get(0).getY());

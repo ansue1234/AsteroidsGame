@@ -65,4 +65,8 @@ public class SpaceShip extends Floater
         shengZhou.setPointDirection((int)(Math.random()*360));
       }
    }
+
+   public void gravity(){
+     
+   }
 }
