@@ -1,9 +1,9 @@
 SpaceShip shengZhou = new SpaceShip();
-Planet bob = new Planet(200,200);
+Planet bob = new Planet(600,400);
 ArrayList<Bullets> bullet;
 ArrayList<Asteriod> yun;
 Star [] stars;
-public static int spe = 8;
+public static int spe = 5;
 public int shipHealth = 100;
 public int ammo = 10000;
 //your variable declarations here
@@ -35,7 +35,8 @@ public void draw()
   shengZhou.sped();
   stats();
   collide();
-  bob.show();   
+  bob.show(); 
+  bob.gravity(shengZhou);  
   //System.out.println("y"+yun.size());
   //System.out.println("b"+bullet.size());
   //System.out.println(bullet.get(0).getY());
@@ -79,14 +80,15 @@ public void collide(){
   }
       
   for (int j = bullet.size()-2; j>=0; j--){
-    if(bullet.get(j).getX()<0||bullet.get(j).getX()>800||bullet.get(j).getY()<0||bullet.get(j).getY()>800){
+    if(bullet.get(j).getX()<0||bullet.get(j).getX()>1200||bullet.get(j).getY()<0||bullet.get(j).getY()>800){
       bullet.remove(j); 
-    }
+    }else{
       for(int i = yun.size()-2; i>=0; i--){
         if(dist(bullet.get(j).getX(), bullet.get(j).getY(),yun.get(i).getX(), yun.get(i).getY())<15){
-          yun.remove(i);
-          bullet.remove(j);
-       }     
+            yun.remove(i);
+            bullet.remove(j);
+         }     
+        }
       }
     }
   }
