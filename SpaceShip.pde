@@ -7,8 +7,8 @@ public class SpaceShip extends Floater
     xCorners=xC;
     yCorners=yC;
     myColor  = 255;
-    myCenterX = 400;
-    myCenterY = 400;
+    myCenterX = 100;
+    myCenterY = 100;
     myDirectionX = 0;
     myDirectionY = 0;
     myPointDirection = 270;

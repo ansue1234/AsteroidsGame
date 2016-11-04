@@ -19,7 +19,7 @@ public void setup()
   }
   bullet = new ArrayList<Bullets>();
   size(1200,800);
-  frameRate(60);
+  frameRate(2);
 }
 public void draw() 
 {
