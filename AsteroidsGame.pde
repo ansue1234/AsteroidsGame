@@ -19,7 +19,7 @@ public void setup()
   }
   bullet = new ArrayList<Bullets>();
   size(1200,800);
-  frameRate(2);
+  frameRate(10);
 }
 public void draw() 
 {
@@ -28,24 +28,24 @@ public void draw()
   for(int i = 0; i<stars.length; i++){
     stars[i].show();
   }
-  Asteriods();
+  asteriods();
   bulletsMove();
   shengZhou.move();
   shengZhou.show();
-  shengZhou.sped();
+
   stats();
   collide();
   bob.show(); 
   bob.gravity(shengZhou);  
-  //System.out.println("y"+yun.size());
-  //System.out.println("b"+bullet.size());
-  //System.out.println(bullet.get(0).getY());
+  System.out.println("X"+shengZhou.getDirectionX());
+  System.out.println("Y"+shengZhou.getDirectionY());
 }
 public void keyPressed(){  
-  shengZhou.control();
+  control();
   bulletsShoot();
+  sped();
 }
-public void Asteriods(){
+public void asteriods(){
   for(int i = yun.size()-1; i>=0; i--){
     yun.get(i).show();
     yun.get(i).move();
@@ -100,3 +100,53 @@ public void stats(){
   text("Health:" + shipHealth,40,40);
   text("Ammo:" + ammo,40,60);
 }
+
+ public void sped(){
+      if(shengZhou.getDirectionY()>spe){
+          shengZhou.setDirectionY(spe);
+      }else if(shengZhou.getDirectionX()>spe){
+        shengZhou.setDirectionX(spe);
+      }else if(shengZhou.getDirectionY()<-spe){
+        shengZhou.setDirectionY(-spe);
+      }else if(shengZhou.getDirectionX()<-spe){
+        shengZhou.setDirectionX(-spe);
+      }
+   }
+   
+   public void control(){
+      if(key == 'd'&&key == 'w'){
+        shengZhou.accelerate(1);
+        shengZhou.rotate(2);
+        sped();
+      }else if(key == 's'&&key == 'w'){
+        shengZhou.accelerate(-1);
+        shengZhou.rotate(2);
+        sped();
+      }else if(key == 'd'&&key == 'a'){
+        shengZhou.accelerate(1);
+        shengZhou.rotate(-2);
+        sped();
+      }else if(key == 's'&&key == 'a'){
+        shengZhou.accelerate(-1);
+        shengZhou.rotate(-2);
+        sped();
+      }else if(key == 'w'){
+        shengZhou.accelerate(1);
+        sped();
+      }else if(key == 's'){
+        shengZhou.accelerate(-1);
+        sped();
+      }else if(key == 'a'){
+        shengZhou.rotate(-2);
+        sped();
+      }else if(key == 'd'){
+        shengZhou.rotate(2);
+        sped();
+      }else if(key == 'r'){
+        shengZhou.setY((int)(Math.random()*800));
+        shengZhou.setX((int)(Math.random()*800));
+        shengZhou.setDirectionY(0);
+        shengZhou.setDirectionX(0);
+        shengZhou.setPointDirection((int)(Math.random()*360));
+      }
+   }

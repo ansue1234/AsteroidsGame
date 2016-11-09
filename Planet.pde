@@ -25,17 +25,36 @@ public class Planet {
  	}
  	public void gravity(SpaceShip shengZhou){
  		if(dist(myX,myY,shengZhou.getX(),shengZhou.getY())<250){
+ 			
+ 			// 	System.out.println(gFacX);
+ 			// 	System.out.println(gFacY);
+ 				 // gFacX = Math.abs(myX-shengZhou.getX());
+ 			 	//  gFacY = Math.abs(myY-shengZhou.getY());
+ 			 	 gFacX =5;
+ 			 	 gFacY =5;
  			if(shengZhou.getX()>myX&&shengZhou.getY()>myY){
- 				System.out.println(gFacX);
- 				System.out.println(gFacY);
- 				gFacX+= 1/myX-shengZhou.getX();
- 				gFacY+= 1/myY-shengZhou.getY();
- 				shengZhou.setDirectionX(gFacX);
- 				shengZhou.setDirectionY(gFacY);
- 			}else{
- 				gFacX=0;
- 				gFacY=0;
+ 				//System.out.println(true);
+ 				// shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
+ 			 // 	shengZhou.setDirectionY(shengZhou.getDirectionX()+gFacY);
+ 			 	shengZhou.setDirectionY(shengZhou.getDirectionX()-gFacY);
+ 			 	shengZhou.setDirectionX(shengZhou.getDirectionY()-gFacX);
+ 			 }
+ 			else if(shengZhou.getX()>myX&&shengZhou.getY()<myY){
+ 			// 	shengZhou.setDirectionX(-gFacX);
+ 			// 	shengZhou.setDirectionY(gFacY);
+ 			 	shengZhou.setDirectionY(shengZhou.getDirectionY()+gFacY);
+ 			 	shengZhou.setDirectionX(shengZhou.getDirectionX()-gFacX);
+ 			}else if(shengZhou.getX()<myX&&shengZhou.getY()>myY){
+ 				shengZhou.setDirectionY(shengZhou.getDirectionY()-gFacY);
+ 			 	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
+ 			}else if(shengZhou.getX()<myX&&shengZhou.getY()<myY){
+ 			 	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
+ 			 	shengZhou.setDirectionY(shengZhou.getDirectionX()+gFacY);
  			}
+ 		}else{
+ 			System.out.println(false);
+ 			sped();
+ 		}
 
  			//}else if(shengZhou.getX()>myX&&shengZhou.getY()<myY){
  				// shengZhou.setDirectionX(-gFac);
@@ -46,7 +65,7 @@ public class Planet {
  			//}else if(shengZhou.getX()<myX&&shengZhou.getY()<myY){
  				//shengZhou.setDirectionX(gFac);
  				//shengZhou.setDirectionX(gFac);
- 			//}else if(shengZhou.getX()==myX
+ 			
  		
  	}
 }
