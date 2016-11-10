@@ -37,8 +37,8 @@ public void draw()
   collide();
   bob.show(); 
   bob.gravity(shengZhou);  
-  System.out.println("X"+shengZhou.getDirectionX());
-  System.out.println("Y"+shengZhou.getDirectionY());
+ // System.out.println("X"+shengZhou.getDirectionX());
+  //System.out.println("Y"+shengZhou.getDirectionY());
 }
 public void keyPressed(){  
   control();

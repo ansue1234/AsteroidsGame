@@ -26,12 +26,14 @@ public class Planet {
  	public void gravity(SpaceShip shengZhou){
  		if(dist(myX,myY,shengZhou.getX(),shengZhou.getY())<250){
  			
- 			// 	System.out.println(gFacX);
- 			// 	System.out.println(gFacY);
- 				 // gFacX = Math.abs(myX-shengZhou.getX());
- 			 	//  gFacY = Math.abs(myY-shengZhou.getY());
- 			 	 gFacX =5;
- 			 	 gFacY =5;
+ 				
+ 				  gFacX = (double)(Math.abs((myX-shengZhou.getX())/50));
+ 			 	  gFacY = (double)(Math.abs((myY-shengZhou.getY())/50));
+ 			 	  	System.out.println(gFacX);
+ 			 		System.out.println(gFacY);
+
+ 			 	// gFacX =5;
+ 			 	 //gFacY =5;
  			if(shengZhou.getX()>myX&&shengZhou.getY()>myY){
  				//System.out.println(true);
  				// shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
