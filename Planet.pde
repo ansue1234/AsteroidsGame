@@ -25,25 +25,14 @@ public class Planet {
  	}
  	public void gravity(SpaceShip shengZhou){
  		if(dist(myX,myY,shengZhou.getX(),shengZhou.getY())<250){
- 			
- 				
  				  gFacX = (double)(Math.abs((myX-shengZhou.getX())/50));
  			 	  gFacY = (double)(Math.abs((myY-shengZhou.getY())/50));
- 			 	  	System.out.println(gFacX);
- 			 		System.out.println(gFacY);
-
- 			 	// gFacX =5;
- 			 	 //gFacY =5;
+ 			 	  System.out.println(gFacX);
+ 			 	  System.out.println(gFacY);
  			if(shengZhou.getX()>myX&&shengZhou.getY()>myY){
- 				//System.out.println(true);
- 				// shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
- 			 // 	shengZhou.setDirectionY(shengZhou.getDirectionX()+gFacY);
  			 	shengZhou.setDirectionY(shengZhou.getDirectionX()-gFacY);
  			 	shengZhou.setDirectionX(shengZhou.getDirectionY()-gFacX);
- 			 }
- 			else if(shengZhou.getX()>myX&&shengZhou.getY()<myY){
- 			// 	shengZhou.setDirectionX(-gFacX);
- 			// 	shengZhou.setDirectionY(gFacY);
+ 			}else if(shengZhou.getX()>myX&&shengZhou.getY()<myY){
  			 	shengZhou.setDirectionY(shengZhou.getDirectionY()+gFacY);
  			 	shengZhou.setDirectionX(shengZhou.getDirectionX()-gFacX);
  			}else if(shengZhou.getX()<myX&&shengZhou.getY()>myY){
@@ -52,22 +41,18 @@ public class Planet {
  			}else if(shengZhou.getX()<myX&&shengZhou.getY()<myY){
  			 	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
  			 	shengZhou.setDirectionY(shengZhou.getDirectionX()+gFacY);
+ 			}else if(shengZhou.getX()==myX&&shengZhou.getY()<myY){
+ 			 	shengZhou.setDirectionY(shengZhou.getDirectionX()+gFacY);
+ 			}else if(shengZhou.getX()==myX&&shengZhou.getY()>myY){
+ 			 	shengZhou.setDirectionY(shengZhou.getDirectionX()-gFacY);
+ 			}else if(shengZhou.getX()<myX&&shengZhou.getY()==myY){
+ 			 	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
+ 			}else if(shengZhou.getX()>myX&&shengZhou.getY()==myY){
+ 			 	shengZhou.setDirectionX(shengZhou.getDirectionX()-gFacX);
  			}
- 		}else{
- 			System.out.println(false);
- 			sped();
- 		}
-
- 			//}else if(shengZhou.getX()>myX&&shengZhou.getY()<myY){
- 				// shengZhou.setDirectionX(-gFac);
- 				// shengZhou.setDirectionX(gFac);
- 			//}else if(shengZhou.getX()<myX&&shengZhou.getY()>myY){
- 				//shengZhou.setDirectionX(gFac);
- 				//shengZhou.setDirectionX(-gFac);
- 			//}else if(shengZhou.getX()<myX&&shengZhou.getY()<myY){
- 				//shengZhou.setDirectionX(gFac);
- 				//shengZhou.setDirectionX(gFac);
- 			
- 		
- 	}
+ 	// }else{
+ 	// 	System.out.println(false);
+ 	// 	sped();
+		}
+	}
 }

@@ -3,7 +3,7 @@ Planet bob = new Planet(600,400);
 ArrayList<Bullets> bullet;
 ArrayList<Asteriod> yun;
 Star [] stars;
-public static int spe = 5;
+public static int spe = 10;
 public int shipHealth = 100;
 public int ammo = 10000;
 //your variable declarations here
