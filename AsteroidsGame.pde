@@ -19,7 +19,7 @@ public void setup()
   }
   bullet = new ArrayList<Bullets>();
   size(1200,800);
-  frameRate(10);
+  frameRate(60);
 }
 public void draw() 
 {
@@ -86,7 +86,7 @@ public void collide(){
       for(int i = yun.size()-2; i>=0; i--){
         if(dist(bullet.get(j).getX(), bullet.get(j).getY(),yun.get(i).getX(), yun.get(i).getY())<15){
             yun.remove(i);
-            bullet.remove(j);
+          //  bullet.remove(j);
          }     
         }
       }

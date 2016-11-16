@@ -17,8 +17,8 @@ public class Bullets extends Floater{
     rad = myPointDirection*(Math.PI/180);
     myCenterX = shengZhou.getX();
     myCenterY = shengZhou.getY();
-    myDirectionX = 20*Math.cos(rad)+shengZhou.getDirectionX();
-    myDirectionY = 20*Math.sin(rad)+shengZhou.getDirectionY();
+    myDirectionX = 30*Math.cos(rad)+shengZhou.getDirectionX();
+    myDirectionY = 30*Math.sin(rad)+shengZhou.getDirectionY();
   }
   
   public void show(){

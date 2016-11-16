@@ -1,5 +1,11 @@
 public class SpaceShip extends Floater  
 {   
+  private boolean le = false;
+  private boolean rt = false;
+  private boolean fw = false;
+  private boolean bk = false;
+  private boolean hy = false;
+
    SpaceShip(){
     corners = 10;
     int[] xC = {26,10,0,-8,-8,-14,-8,-8,0,10};
@@ -36,7 +42,18 @@ public class SpaceShip extends Floater
       }
    }
    
-   public void control(){
+   public void control1(){
+    // if(key == 'w'){
+    //     fw = true;
+    //   }else if(key == 'a'){
+    //     le = true;
+    //   }else if(key == 's'){
+    //     bk = true;
+    //   }else if(key == 'd'){
+    //     rt = true;
+    //   }else if(key == 'r'){
+    //     hy = true;
+    //   }
       if(key == 'd'&&key == 'w'){
         shengZhou.accelerate(1);
         shengZhou.rotate(2);
