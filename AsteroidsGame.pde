@@ -3,9 +3,15 @@ Planet bob = new Planet(600,400);
 ArrayList<Bullets> bullet;
 ArrayList<Asteriod> yun;
 Star [] stars;
-public static int spe = 10;
+public static int spe = 2;
 public int shipHealth = 100;
 public int ammo = 10000;
+public boolean le = false;
+public boolean rt = false;
+public boolean fw = false;
+public boolean bk = false;
+public boolean hy = false;
+public boolean bu = false;
 //your variable declarations here
 public void setup()                               
 {
@@ -32,18 +38,22 @@ public void draw()
   bulletsMove();
   shengZhou.move();
   shengZhou.show();
-
+  control3();
   stats();
   collide();
   bob.show(); 
   bob.gravity(shengZhou);  
+
+
  // System.out.println("X"+shengZhou.getDirectionX());
   //System.out.println("Y"+shengZhou.getDirectionY());
 }
 public void keyPressed(){  
-  control();
-  bulletsShoot();
-  sped();
+  shengZhou.control1();
+  
+}
+public void keyReleased(){  
+  shengZhou.control2();
 }
 public void asteriods(){
   for(int i = yun.size()-1; i>=0; i--){
@@ -57,11 +67,9 @@ public void asteriods(){
 
 public void bulletsShoot(){
 if(ammo>0){  
-  if(key ==' '){
     bullet.add(new Bullets(shengZhou));
     ammo-=1;
   }
-}
 }
 
 public void bulletsMove(){
@@ -87,9 +95,11 @@ public void collide(){
         if(dist(bullet.get(j).getX(), bullet.get(j).getY(),yun.get(i).getX(), yun.get(i).getY())<15){
             yun.remove(i);
           //  bullet.remove(j);
-         }     
-        }
+        }// }else if(dist(bullet.get(j).getX(), bullet.get(j).getY(),yun.get(i).getX(), yun.get(i).getY())<15){
+        //   bullet.remove(j);
+        // }    
       }
+    }
     }
   }
 
@@ -112,41 +122,31 @@ public void stats(){
         shengZhou.setDirectionX(-spe);
       }
    }
-   
-   public void control(){
-      if(key == 'd'&&key == 'w'){
-        shengZhou.accelerate(1);
-        shengZhou.rotate(2);
-        sped();
-      }else if(key == 's'&&key == 'w'){
-        shengZhou.accelerate(-1);
-        shengZhou.rotate(2);
-        sped();
-      }else if(key == 'd'&&key == 'a'){
-        shengZhou.accelerate(1);
-        shengZhou.rotate(-2);
-        sped();
-      }else if(key == 's'&&key == 'a'){
-        shengZhou.accelerate(-1);
-        shengZhou.rotate(-2);
-        sped();
-      }else if(key == 'w'){
+  public void control3(){
+      if(fw==true){
         shengZhou.accelerate(1);
         sped();
-      }else if(key == 's'){
-        shengZhou.accelerate(-1);
-        sped();
-      }else if(key == 'a'){
-        shengZhou.rotate(-2);
-        sped();
-      }else if(key == 'd'){
+      }
+      if(le==true){
         shengZhou.rotate(2);
         sped();
-      }else if(key == 'r'){
+      }
+      if(bk==true){
+        shengZhou.accelerate(-1);
+        sped();
+      }
+      if(rt==true){
+        shengZhou.rotate(-2);
+        sped();
+      }
+      if(hy==true){
         shengZhou.setY((int)(Math.random()*800));
         shengZhou.setX((int)(Math.random()*800));
         shengZhou.setDirectionY(0);
         shengZhou.setDirectionX(0);
         shengZhou.setPointDirection((int)(Math.random()*360));
       }
-   }
+      if(bu == true){
+        bulletsShoot();
+      }
+    }

@@ -49,6 +49,8 @@ public class Planet {
  			 	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
  			}else if(shengZhou.getX()>myX&&shengZhou.getY()==myY){
  			 	shengZhou.setDirectionX(shengZhou.getDirectionX()-gFacX);
+ 			}else{
+ 				sped();
  			}
 		 	// }else{
 		 	// 	System.out.println(false);
