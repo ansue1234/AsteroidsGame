@@ -54,6 +54,7 @@ public class SpaceShip extends Floater
     public void control2(){
         if(key == 'w'){
           fw = false;
+          sped();
         }
         if(key == 'a'){
           le = false;
