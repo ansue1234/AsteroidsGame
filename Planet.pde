@@ -27,8 +27,7 @@ public class Planet {
  		if(dist(myX,myY,shengZhou.getX(),shengZhou.getY())<250){
  				  gFacX = (double)(Math.abs((myX-shengZhou.getX())/50));
  			 	  gFacY = (double)(Math.abs((myY-shengZhou.getY())/50));
- 			 	  // System.out.println(gFacX);
- 			 	  // System.out.println(gFacY);
+ 			 	 
  			if(shengZhou.getX()>myX&&shengZhou.getY()>myY){
  			 	shengZhou.setDirectionY(shengZhou.getDirectionX()-gFacY);
  			 	shengZhou.setDirectionX(shengZhou.getDirectionY()-gFacX);

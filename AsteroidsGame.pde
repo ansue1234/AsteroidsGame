@@ -1,6 +1,7 @@
 SpaceShip shengZhou = new SpaceShip();
 Planet bob = new Planet(600,400);
 ArrayList<Bullets> bullet;
+ArrayList<Missiles> missile;
 ArrayList<Asteriod> yun;
 Star [] stars;
 public static int spe = 2;
@@ -12,6 +13,7 @@ public boolean fw = false;
 public boolean bk = false;
 public boolean hy = false;
 public boolean bu = false;
+public boolean mi = false;
 //your variable declarations here
 public void setup()                               
 {
@@ -24,6 +26,7 @@ public void setup()
     stars[i] = new Star();
   }
   bullet = new ArrayList<Bullets>();
+  missile = new ArrayList<Missiles>();
   size(1200,800);
   frameRate(60);
 }
@@ -36,6 +39,7 @@ public void draw()
   }
   asteriods();
   bulletsMove();
+  missMove();
   shengZhou.move();
   shengZhou.show();
   control3();
@@ -72,12 +76,26 @@ if(ammo>0){
   }
 }
 
+public void missShoot(){
+if(ammo>0){  
+    missile.add(new Missiles(shengZhou));
+    //ammo-=1;
+  }
+}
+
 public void bulletsMove(){
   for(int j = bullet.size()-1;j>=0; j--){
     bullet.get(j).show();
     bullet.get(j).move();
   }
-}   
+} 
+public void missMove(){
+  for(int j = missile.size()-1;j>=0; j--){
+      missile.get(j).show();
+      missile.get(j).move();
+    }
+  
+}  
 
 public void collide(){
   for(int i = yun.size()-1; i>=0; i--){
@@ -94,7 +112,7 @@ public void collide(){
       for(int i = yun.size()-2; i>=0; i--){
         if(dist(bullet.get(j).getX(), bullet.get(j).getY(),yun.get(i).getX(), yun.get(i).getY())<15){
             yun.remove(i);
-          //  bullet.remove(j);
+           bullet.remove(j);
         }// }else if(dist(bullet.get(j).getX(), bullet.get(j).getY(),yun.get(i).getX(), yun.get(i).getY())<15){
         //   bullet.remove(j);
         // }    
@@ -148,5 +166,8 @@ public void stats(){
       }
       if(bu == true){
         bulletsShoot();
+      }
+      if(mi == true){
+        missShoot();
       }
     }

@@ -49,6 +49,9 @@ public class SpaceShip extends Floater
       if(key == ' '){
         bu = true;
       }
+      if(key == 'c'){
+       mi = true;
+      }
     }
 
     public void control2(){
@@ -71,6 +74,9 @@ public class SpaceShip extends Floater
         if(key == ' '){
           bu = false;
         }
+        if(key == 'c'){
+          mi = false;
+      }
     }
    
 }
