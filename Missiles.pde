@@ -17,21 +17,29 @@
 	    // myDirectionY = 30*Math.sin(rad)+shengZhou.getDirectionY();
     }
     public void show(){
+    	fill(0,255,0);
     	beginShape();
-		vertex(myCenterX-2, myCenterY-2);
-		vertex(myCenterX-1, myCenterY-1);
-		vertex(myCenterX-1, myCenterY+2);
-		vertex(30, 75);
+		vertex((int)((((float)myCenterX-2*2)* Math.cos(dRadians)) - (((float)myCenterY+2*2) * Math.sin(dRadians))+myCenterX), (int)((float)myCenterX-2*2)* Math.sin(dRadians)) + (((float)myCenterY+2*2) * Math.cos(dRadians))+myCenterY));
+		vertex((int)((((float)myCenterX-1*2)* Math.cos(dRadians)) - (((float)myCenterY+1*2) * Math.sin(dRadians))+myCenterX), (int)((float)myCenterX-1*2)* Math.sin(dRadians)) + ((float)myCenterY+1*2) * Math.cos(dRadians))+myCenterY));
+ 		vertex((int)((((float)myCenterX-1*2)* Math.cos(dRadians)) - (((float)myCenterY-2*2) * Math.sin(dRadians))+myCenterX), (int)((float)myCenterX-1*2)* Math.sin(dRadians)) + ((float)myCenterY-2*2) * Math.cos(dRadians))+myCenterY));
+		vertex((int)((((float)myCenterX)* Math.cos(dRadians)) - (((float)myCenterY-3*2) * Math.sin(dRadians))+myCenterX), (int)((float)myCenterX)* Math.sin(dRadians)) + ((float)myCenterY-3*2) * Math.cos(dRadians))+myCenterY));
+ 		vertex((int)((((float)myCenterX+1*2)* Math.cos(dRadians)) - (((float)myCenterY-2*2) * Math.sin(dRadians))+myCenterX), (int)((float)myCenterX+1*2)* Math.sin(dRadians)) + ((float)myCenterY-2*2) * Math.cos(dRadians))+myCenterY));
+		vertex((int)((((float)myCenterX+1*2)* Math.cos(dRadians)) - (((float)myCenterY+1*2) * Math.sin(dRadians))+myCenterX), (int)((float)myCenterX+1*2)* Math.sin(dRadians)) + ((float)myCenterY+1*2) * Math.cos(dRadians))+myCenterY));
+		vertex((int)((((float)myCenterX+2*2)* Math.cos(dRadians)) - (((float)myCenterY+2*2) * Math.sin(dRadians))+myCenterX), (int)((float)myCenterX+2*2)* Math.sin(dRadians)) + ((float)myCenterY+2*2) * Math.cos(dRadians))+myCenterY));
+		// vertex((float)myCenterX-1*2, (float)myCenterY-2*2);
+		// vertex((float)myCenterX, (float)myCenterY-3*2);
+		// vertex((float)myCenterX+1*2, (float)myCenterY-2*2);
+		// vertex((float)myCenterX+1*2, (float)myCenterY+1*2);
+		// vertex((float)myCenterX+2*2, (float)myCenterY+2*2);
 		endShape(CLOSE);
-    	// fill(myColor);   
-	    // stroke(myColor);    
-	    // //convert degrees to radians for sin and cos         
+    	fill(myColor);   
+	    stroke(myColor);    
+	    //convert degrees to radians for sin and cos         
 	    // double dRadians = myPointDirection*(Math.PI/180);                 
 	    // int xRotatedTranslated, yRotatedTranslated;    
 	    // beginShape();         
 	    // for(int nI = 0; nI < corners; nI++)    
 	    // {     
-	    //   //rotate and translate the coordinates of the floater using current direction 
 	    //   xRotatedTranslated = (int)((xCorners[nI]* Math.cos(dRadians)) - (yCorners[nI] * Math.sin(dRadians))+myCenterX);     
 	    //   yRotatedTranslated = (int)((xCorners[nI]* Math.sin(dRadians)) + (yCorners[nI] * Math.cos(dRadians))+myCenterY);      
 	    //   vertex(xRotatedTranslated,yRotatedTranslated);    
@@ -39,5 +47,4 @@
 	    // endShape(CLOSE); 
 	     
 	 }   
-    
- }
+}

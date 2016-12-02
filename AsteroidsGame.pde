@@ -129,9 +129,9 @@ public void stats(){
   text("Ammo:" + ammo,40,60);
 }
 
- public void sped(){
-      if(shengZhou.getDirectionY()>spe){
-          shengZhou.setDirectionY(spe);
+public void sped(){
+     if(shengZhou.getDirectionY()>spe){
+         shengZhou.setDirectionY(spe);
       }else if(shengZhou.getDirectionX()>spe){
         shengZhou.setDirectionX(spe);
       }else if(shengZhou.getDirectionY()<-spe){
