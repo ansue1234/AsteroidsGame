@@ -117,8 +117,17 @@ public void collide(){
         //   bullet.remove(j);
         // }    
       }
+      }
     }
-    }
+    
+    for(int a =0; a<yun.size(); a++){
+      for (int b = 0; b<missile.size(); b++){
+        if(dist(missile.get(b).getX(), missile.get(b).getY(),yun.get(a).getX(), yun.get(a).getY())<15){
+           yun.remove(a);
+           missile.remove(b);
+        }
+    
+    
   }
 
 
