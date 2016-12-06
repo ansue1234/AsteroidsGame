@@ -7,6 +7,7 @@ Star [] stars;
 public static int spe = 2;
 public int shipHealth = 100;
 public int ammo = 10000;
+public int misl = 100;
 public boolean le = false;
 public boolean rt = false;
 public boolean fw = false;
@@ -77,9 +78,9 @@ if(ammo>0){
 }
 
 public void missShoot(){
-if(ammo>0){  
+if(misl>0){  
     missile.add(new Missiles(shengZhou));
-    //ammo-=1;
+    misl-=1;
   }
 }
 
@@ -124,11 +125,14 @@ public void collide(){
       for (int b = 0; b<missile.size(); b++){
         if(dist(missile.get(b).getX(), missile.get(b).getY(),yun.get(a).getX(), yun.get(a).getY())<15){
            yun.remove(a);
+           //missile.remove(b);
+           //break;
+        }else if(missile.get(b).getX()<0||missile.get(b).getX()>1200||missile.get(b).getY()<0||missile.get(b).getY()>800){
            missile.remove(b);
         }
-    
-    
+    }
   }
+}
 
 
 
@@ -136,6 +140,7 @@ public void stats(){
   textSize(20);
   text("Health:" + shipHealth,40,40);
   text("Ammo:" + ammo,40,60);
+  text("Missiles:" + misl,40,100);
 }
 
 public void sped(){
