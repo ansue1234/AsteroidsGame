@@ -4,13 +4,15 @@ public class Planet {
 	private float gravX;
 	private double gFacX = 0;
 	private double gFacY = 0;
-	private PVector grav = new PVector();
-	private PVector flight = new PVector();
+	private PVector grav;
+	private PVector flight;
+	private PVector sum = new PVector(0,0);
 	public Planet(int x, int y, SpaceShip shengZhou){
 		myX = x;
 		myY = y;
-		flight = PVector(shengZhou.getDirectionX(),shengZhou.getDirectionY());
-
+		flight = new PVector((float)shengZhou.getDirectionX(),(float)shengZhou.getDirectionY());
+		grav = new PVector(,);
+		sum = flight.add(grav);
 
 	}
 	public void show(){
@@ -31,6 +33,11 @@ public class Planet {
  	}
  	public void gravity(SpaceShip shengZhou){
  		if(dist(myX,myY,shengZhou.getX(),shengZhou.getY())<250){
+ 			shengZhou.setDirectionY(sum.y);
+ 			shengZhou.setDirectionX(sum.x);
+ 		}else{
+ 			sped();
+ 		}
  			// 	  gFacX = (double)(Math.abs((myX-shengZhou.getX())/50));
  			//  	  gFacY = (double)(Math.abs((myY-shengZhou.getY())/50));
  			 	 
@@ -60,6 +67,5 @@ public class Planet {
 		 	// }else{
 		 	// 	System.out.println(false);
 		 	// 	sped();
-		}
 	}
 }

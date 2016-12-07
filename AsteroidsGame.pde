@@ -1,5 +1,5 @@
 SpaceShip shengZhou = new SpaceShip();
-Planet bob = new Planet(600,400);
+Planet bob = new Planet(600,400,shengZhou);
 ArrayList<Bullets> bullet;
 ArrayList<Missiles> missile;
 ArrayList<Asteriod> yun;
