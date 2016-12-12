@@ -11,7 +11,7 @@ public class Planet {
 		myX = x;
 		myY = y;
 		flight = new PVector((float)shengZhou.getDirectionX(),(float)shengZhou.getDirectionY());
-		grav = new PVector(,);
+		grav = new PVector(0,(int)(Math.tan(3/(2*Math.PI)))*(float)shengZhou.getDirectionY());
 		sum = flight.add(grav);
 
 	}
