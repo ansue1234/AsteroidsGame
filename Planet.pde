@@ -4,15 +4,15 @@ public class Planet {
 	private float gravX;
 	private double gFacX = 0;
 	private double gFacY = 0;
-	private PVector grav;
-	private PVector flight;
-	private PVector sum = new PVector(0,0);
+	//private PVector grav;
+	//private PVector flight;
+	//private PVector sum = new PVector(0,0);
 	public Planet(int x, int y, SpaceShip shengZhou){
 		myX = x;
 		myY = y;
-		flight = new PVector((float)shengZhou.getDirectionX(),(float)shengZhou.getDirectionY());
-		grav = new PVector(0,(int)(Math.tan(3/(2*Math.PI)))*(float)shengZhou.getDirectionY());
-		sum = flight.add(grav);
+		//flight = new PVector((float)shengZhou.getDirectionX(),(float)shengZhou.getDirectionY());
+		//grav = new PVector(0,(int)(Math.tan(3/(2*Math.PI)))*(float)shengZhou.getDirectionY());
+		//sum = flight.add(grav);
 
 	}
 	public void show(){
@@ -33,39 +33,38 @@ public class Planet {
  	}
  	public void gravity(SpaceShip shengZhou){
  		if(dist(myX,myY,shengZhou.getX(),shengZhou.getY())<250){
- 			shengZhou.setDirectionY(sum.y);
- 			shengZhou.setDirectionX(sum.x);
- 		}else{
- 			sped();
- 		}
- 			// 	  gFacX = (double)(Math.abs((myX-shengZhou.getX())/50));
- 			//  	  gFacY = (double)(Math.abs((myY-shengZhou.getY())/50));
+ 			
+ 			 	  gFacX = (double)(Math.abs((myX-shengZhou.getX())/50));
+ 			  	  gFacY = (double)(Math.abs((myY-shengZhou.getY())/50));
  			 	 
- 			// if(shengZhou.getX()>myX&&shengZhou.getY()>myY){
- 			//  	shengZhou.setDirectionY(shengZhou.getDirectionX()-gFacY);
- 			//  	shengZhou.setDirectionX(shengZhou.getDirectionY()-gFacX);
- 			// }else if(shengZhou.getX()>myX&&shengZhou.getY()<myY){
- 			//  	shengZhou.setDirectionY(shengZhou.getDirectionY()+gFacY);
- 			//  	shengZhou.setDirectionX(shengZhou.getDirectionX()-gFacX);
- 			// }else if(shengZhou.getX()<myX&&shengZhou.getY()>myY){
- 			// 	shengZhou.setDirectionY(shengZhou.getDirectionY()-gFacY);
- 			//  	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
- 			// }else if(shengZhou.getX()<myX&&shengZhou.getY()<myY){
- 			//  	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
- 			//  	shengZhou.setDirectionY(shengZhou.getDirectionX()+gFacY);
- 			// }else if(shengZhou.getX()==myX&&shengZhou.getY()<myY){
- 			//  	shengZhou.setDirectionY(shengZhou.getDirectionX()+gFacY);
- 			// }else if(shengZhou.getX()==myX&&shengZhou.getY()>myY){
- 			//  	shengZhou.setDirectionY(shengZhou.getDirectionX()-gFacY);
- 			// }else if(shengZhou.getX()<myX&&shengZhou.getY()==myY){
- 			//  	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
- 			// }else if(shengZhou.getX()>myX&&shengZhou.getY()==myY){
- 			//  	shengZhou.setDirectionX(shengZhou.getDirectionX()-gFacX);
- 			// }else{
- 			// 	sped();
- 			// }
-		 	// }else{
-		 	// 	System.out.println(false);
-		 	// 	sped();
-	}
+ 			 if(shengZhou.getX()>myX&&shengZhou.getY()>myY){
+ 			  	shengZhou.setDirectionY(shengZhou.getDirectionX()-gFacY);
+ 			  	shengZhou.setDirectionX(shengZhou.getDirectionY()-gFacX);
+ 			 }else if(shengZhou.getX()>myX&&shengZhou.getY()<myY){
+ 			  	shengZhou.setDirectionY(shengZhou.getDirectionY()+gFacY);
+ 			  	shengZhou.setDirectionX(shengZhou.getDirectionX()-gFacX);
+ 			 }else if(shengZhou.getX()<myX&&shengZhou.getY()>myY){
+ 			 	shengZhou.setDirectionY(shengZhou.getDirectionY()-gFacY);
+ 			  	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
+ 			 }else if(shengZhou.getX()<myX&&shengZhou.getY()<myY){
+ 			  	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
+ 			  	shengZhou.setDirectionY(shengZhou.getDirectionX()+gFacY);
+ 			 }else if(shengZhou.getX()==myX&&shengZhou.getY()<myY){
+ 			  	shengZhou.setDirectionY(shengZhou.getDirectionX()+gFacY);
+ 			 }else if(shengZhou.getX()==myX&&shengZhou.getY()>myY){
+ 			  	shengZhou.setDirectionY(shengZhou.getDirectionX()-gFacY);
+ 			 }else if(shengZhou.getX()<myX&&shengZhou.getY()==myY){
+ 			  	shengZhou.setDirectionX(shengZhou.getDirectionX()+gFacX);
+ 			 }else if(shengZhou.getX()>myX&&shengZhou.getY()==myY){
+ 			  	shengZhou.setDirectionX(shengZhou.getDirectionX()-gFacX);
+ 			 }
+	  }else{
+      sped();
+  }
+//shengZhou.setDirectionY(sum.y);
+       //shengZhou.setDirectionX(sum.x);
+     //}else{
+     //  sped();
+     //}
+  }
 }

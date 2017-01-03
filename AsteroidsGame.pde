@@ -5,7 +5,7 @@ ArrayList<Missiles> missile;
 ArrayList<Asteriod> yun;
 Star [] stars;
 public static int spe = 2;
-public int shipHealth = 100;
+public int shipHealth = 1000;
 public int ammo = 10000;
 public int misl = 100;
 public boolean le = false;
@@ -30,6 +30,7 @@ public void setup()
   missile = new ArrayList<Missiles>();
   size(1200,800);
   frameRate(60);
+
 }
 public void draw() 
 {
@@ -49,7 +50,13 @@ public void draw()
   bob.show(); 
   bob.gravity(shengZhou);  
 
-
+  if(shipHealth<0){
+    fill(0);
+    rect(0,0,1200,800);
+    fill(255);
+    text("Press refresh to play again!",600,400);
+    noLoop();
+  }
  // System.out.println("X"+shengZhou.getDirectionX());
   //System.out.println("Y"+shengZhou.getDirectionY());
 }
